@@ -3,7 +3,7 @@ import "./style.css";
 
 function SearchForm(props) {
   return (
-    <form>
+    <form id="search-group">
       <div className="input-group mb-3">
         <input
           onChange={props.handleInputChange}
