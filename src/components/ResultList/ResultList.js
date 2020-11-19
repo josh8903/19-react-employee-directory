@@ -36,6 +36,3 @@ function ResultList(props) {
 }
 
 export default ResultList;
-
-/* <img alt={result.picture.thumbnail} </td>
-          className="img-fluid" src={result.images.original.url} /> */

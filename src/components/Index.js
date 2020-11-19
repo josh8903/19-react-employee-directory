@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm/SearchForm";
-import ResultList from "./ResultList";
+import ResultList from "./ResultList/ResultList";
 import Hero from "./Hero/Hero";
 import API from "../utils/API";
 
-class SearchResultContainer extends Component {
+class Index extends Component {
   state = {
     search: "",
     allResults: [],
@@ -82,4 +82,4 @@ class SearchResultContainer extends Component {
   }
 }
 
-export default SearchResultContainer;
+export default Index;
