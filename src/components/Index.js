@@ -11,12 +11,11 @@ class Index extends Component {
     filteredResults: [],
   };
 
-  // When this component mounts/page loads, populate with employees
+  // init populates all employees and duplicates the array for us to filter
+  // allResults array remains constant to eliminated further API calls
   componentDidMount() {
     API.getEmployeeData()
       .then((res) => {
-        console.log(res);
-        console.log(res.data.results.length);
         this.setState({
           allResults: res.data.results,
           filteredResults: res.data.results,
@@ -25,23 +24,21 @@ class Index extends Component {
       .catch((err) => console.log(err));
   }
 
+  // handles search input, adjusts value on the fly
   handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    console.log(name);
     this.setState({
       [name]: value,
     });
   };
 
-  // When the form is submitted, the string in the input field becomes the filter criteria for the first/last name or the phone number
+  // filter on click search button, returns employees by name containing search term
   handleFormSubmit = (event) => {
     event.preventDefault();
-
     const filtered = this.state.allResults.filter((result) => {
       return (
         result.name.first.includes(this.state.search) ||
-        result.phone.includes(this.state.search) ||
         result.name.last.includes(this.state.search)
       );
     });
@@ -49,26 +46,27 @@ class Index extends Component {
     this.setState({ filteredResults: filtered });
   };
 
-  // responds to click on the first name to sort alphabetically
+  // sort on click name col header
   handleSort = (event) => {
     event.preventDefault();
-
-    if (this.state.sort === "AZ") {
+    // sort Z-A, runs if A-Z sort detected
+    if (this.state.sort === "AZ name.first") {
       const sorted = this.state.filteredResults.sort((a, b) => {
         if (a.name.first > b.name.first) return -1;
         else return 1;
       });
-      this.setState({ filteredResults: sorted, sort: "ZA" });
+      this.setState({ filteredResults: sorted, sort: "ZA name.first" });
+      // sort A-Z, runs if Z-A sort not detected
     } else {
       const sorted = this.state.filteredResults.sort((a, b) => {
         if (a.name.first < b.name.first) return -1;
         else return 1;
       });
-      this.setState({ filteredResults: sorted, sort: "AZ" });
+      this.setState({ filteredResults: sorted, sort: "AZ name.first" });
     }
   };
 
-  // renders the page with components
+  // render components
   render() {
     return (
       <div>
