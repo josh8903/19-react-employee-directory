@@ -16,7 +16,7 @@ class Index extends Component {
     API.getEmployeeData()
       .then((res) => {
         console.log(res);
-        console.log(res.data.results);
+        console.log(res.data.results.length);
         this.setState({
           allResults: res.data.results,
           filteredResults: res.data.results,
@@ -50,14 +50,22 @@ class Index extends Component {
   };
 
   // responds to click on the first name to sort alphabetically
-  // BROKEN (prints console.log "sorted", but no functionality)
   handleSort = (event) => {
     event.preventDefault();
-    console.log("sort");
-    const sorted = this.state.filteredResults.sort((a, b) => {
-      return a.sorted > b.sorted;
-    });
-    this.setState({ filteredResults: sorted });
+
+    if (this.state.sort === "AZ") {
+      const sorted = this.state.filteredResults.sort((a, b) => {
+        if (a.name.first > b.name.first) return -1;
+        else return 1;
+      });
+      this.setState({ filteredResults: sorted, sort: "ZA" });
+    } else {
+      const sorted = this.state.filteredResults.sort((a, b) => {
+        if (a.name.first < b.name.first) return -1;
+        else return 1;
+      });
+      this.setState({ filteredResults: sorted, sort: "AZ" });
+    }
   };
 
   // renders the page with components
