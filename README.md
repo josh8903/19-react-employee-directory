@@ -5,7 +5,7 @@
 
 ## About
 
-A simple employee directory application built using React. The application is currently setup to grab a random data set of 200 generated employees utilizing an axios call to randomuser.me. This application is one URL away from integrating with your employeed database! Current functionality includes search by names includind(case sensative) and a sort function that smoothly transitions between ascending and descending.
+A simple employee directory application built using React. The application is currently setup to grab a random data set of 200 generated employees utilizing an axios call to randomuser.me. This application is one URL away from integrating with your employee database! Current functionality includes search by names includind(case sensative) and a sort function that smoothly transitions between ascending and descending.
 
 ## Deployed application
 
