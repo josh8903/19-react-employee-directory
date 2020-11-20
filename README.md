@@ -9,11 +9,13 @@ A simple employee directory application built using React. The application is cu
 ## Deployed application
 
 This application is deployed and functional right out of the box, ready for you to check out on Heroku!
+
 Link: https://rad-19.herokuapp.com/
 
 ## Repository
 
 Take a look behing the scenes at GitHub!
+
 Link: https://github.com/josh8903/19-react-employee-directory
 
 ## Usage
