@@ -1,10 +1,11 @@
 import React from "react";
+import "./style.css";
 
 function ResultList(props) {
   return (
-    <table className="table table-striped">
+    <table className="table table-striped table-hover">
       <thead>
-        <tr>
+        <tr id="tableHeader" className="bg-primary">
           <th scope="col">Profile Photo</th>
           <th scope="col" onClick={props.handleSort}>
             Name
